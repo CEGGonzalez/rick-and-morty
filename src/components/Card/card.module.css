@@ -4,19 +4,52 @@
   align-items: center;
   background-image: url("../../../public/portal1.jpg");
   background-position: center;
+  height: auto;
   width: auto;
   border: 1px solid grey;
   border-radius: 50px;
+  box-shadow: 16px 14px 20px #39ff14;
+  overflow: hidden;
   padding: 20px;
   cursor: pointer;
   -maz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s esset-out;
+  
+}
+.cardContainer::before {
+  content: '';
+  position:absolute;
+  height: 500px;
+  width: 600px;
+  border-radius: 40%;
+  background-image: conic-gradient(#39ff14, transparent 120deg);
+  animation: rotar 2s linear infinite;
 }
 
+@keyframes rotar {
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.cardContainer::after {
+  content: '';
+  position: absolute;
+  height: 240px;
+  width: 190;
+  background-color: #39ff14;
+  border-radius: 50%;
+  box-shadow: inset 16px 14px 20px #0000008c;
+  
+} 
+
 .container:hover {
-  transform: scale(1.05);
+  transform: scale(310);
 }
 
 .atributes {
@@ -39,6 +72,7 @@
 .closeButton:hover {
   background-color: rgb(211, 34, 34);
   color: white;
+  
 }
 
 .imageContainer{
@@ -46,7 +80,7 @@
   text-align: center;
   display: inline-block;
   margin-bottom: 5px;
-}
+ }
 
 .name {
   position: absolute;
@@ -75,6 +109,10 @@
 
 .imageContainer:hover .name {
   opacity: 1;
+}
+
+.image {
+  border-radius: 1000px;
 }
 
 

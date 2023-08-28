@@ -13,8 +13,8 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAcces] = useState(false);
-  let EMAIL = "";
-  let PASSWORD = "";
+  let EMAIL = "avg_unix@gmail.com";
+  let PASSWORD = "230415";
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -82,13 +82,18 @@ function App() {
           <Nav onSearch={onSearch} randomize={randomHandler} />
         )}
         <Routes>
+          
           <Route path="/" element={<Form login={login} />} />
+
           <Route
             path="/home"
             element={<Cards characters={characters} onClose={onClose} />}
           />
+
           <Route path="/about" element={<About />} />
+          
           <Route path="/detail/:id" element={<Detail />} />
+          
         </Routes>
       </>
     </div>

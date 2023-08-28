@@ -10,8 +10,9 @@ export default function Card({ id, name, species, gender, image, onClose }) {
   return (
     <div className={style.cardContainer}>
       <div className={style.imageContainer}>
+        <h2>{name}</h2>
         <img
-          className={style.characterImage}
+          className={style.image}
           src={image}
           alt={name}
           onClick={navigateHandler}
@@ -23,7 +24,6 @@ export default function Card({ id, name, species, gender, image, onClose }) {
     |
 
       <div>
-        <h2>{name}</h2>
         <h2>{species}</h2>
         <h2>{gender}</h2>
       </div>

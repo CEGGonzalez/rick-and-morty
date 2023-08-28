@@ -1,6 +1,7 @@
 import { useState } from "react";
 import validation from "../Validation.js";
-import '../Form/Form.modules.css'
+import style from "./Form.module.css";
+
 const Form = (props) => {
   const { login } = props;
   const [userData, setUserData] = useState({
@@ -28,9 +29,8 @@ const Form = (props) => {
   };
 
   return (
-    <div>
+    <div className={style.FormBox}>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
         <input
           type="email"
           placeholder="Email"
@@ -45,7 +45,6 @@ const Form = (props) => {
         ) : (
           <p style={{ color: "blue" }}>{errors.characters}</p>
         )}
-        <label htmlFor="password">Password:</label>
         <input
           type="password"
           placeholder="Password"

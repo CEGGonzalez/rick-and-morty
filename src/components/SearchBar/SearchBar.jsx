@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SearchContainer, SearchInput, } from "./searchBar.styles";
+import { SearchContainer, SearchInput, Button1 } from "./searchBar.styles";
 
 export default function SearchBar({ onSearch }) {
    const [id, setId] = useState('');
@@ -8,8 +8,8 @@ export default function SearchBar({ onSearch }) {
    }
    return (
       <SearchContainer>
-         <SearchInput type='search' onChange={handleChange} value = {id} />
-         <button onClick={() => {onSearch(id)}}>Search</button>
+         <SearchInput type onChange={handleChange} value = {id} />
+         <Button1 onClick={() => {onSearch(id)}}>Search</Button1>
       </SearchContainer>
    );
 }
