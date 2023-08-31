@@ -1,6 +1,6 @@
-.cardList {
+.favoriteList {
   max-width: 80vw;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 40px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

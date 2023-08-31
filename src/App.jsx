@@ -8,13 +8,14 @@ import { useNavigate } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
 import Form  from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
   const [access, setAcces] = useState(false);
-  let EMAIL = "avg_unix@gmail.com";
-  let PASSWORD = "230415";
+  let EMAIL = "";
+  let PASSWORD = "";
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -92,6 +93,8 @@ function App() {
 
           <Route path="/about" element={<About />} />
           
+          <Route path="/favorites" element={<Favorites />} />
+
           <Route path="/detail/:id" element={<Detail />} />
           
         </Routes>

@@ -1,0 +1,20 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-image: url("../../../public/portal1.jpg"); */
+  background-position: center;
+  height: auto;
+  width: auto;
+  border: 3px solid #39ff14 ;
+  border-radius: 50px;
+  box-shadow: 20px 20px 20px black;
+  overflow: hidden;
+  padding: 20px;
+  cursor: pointer;
+  -maz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s esset-out;
+  
+}

@@ -1,7 +1,54 @@
 import style from "./card.module.css";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { addFavorite, removeFavorite } from "../../redux/actions"
+import { useState, useEffect } from "react";
 
-export default function Card({ id, name, species, gender, image, onClose }) {
+function Card({
+  id,
+  name,
+  species,
+  gender,
+  image,
+  onClose,
+  addFavorite,
+  removeFavorite,
+  myFavorite,
+}) {
+
+  const [isFav, setIsFav] = useState(false);
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      removeFavorite(id);
+    } else {
+      setIsFav(true);
+      addFavorite({
+        id,
+        name,
+        species,
+        gender,
+        image,
+      });
+    }
+  };
+  const [closeBtn, setCloseBtn] = useState(true);
+  
+  useEffect(() => {
+    if (!onClose) {
+      setCloseBtn(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    myFavorite.forEach((fav) => {
+      if (fav.id === id) {
+        setIsFav(true);
+      }
+    });
+    //eslint-disable-next-line
+  }, [myFavorite]);
+
   const navigate = useNavigate();
   function navigateHandler() {
     navigate(`/detail/${id}`);
@@ -9,6 +56,19 @@ export default function Card({ id, name, species, gender, image, onClose }) {
 
   return (
     <div className={style.cardContainer}>
+     {closeBtn && (
+        <button className={style.closeButton}
+          onClick={() => {
+            onClose(id);
+          }}
+        >
+          X
+        </button>
+      )}
+      <div>
+      <button className={style.favoriteButton} onClick={handleFavorite}>{ isFav ? '❤️' : '🤍'}</button>
+     </div>
+     
       <div className={style.imageContainer}>
         <h2>{name}</h2>
         <img
@@ -17,12 +77,8 @@ export default function Card({ id, name, species, gender, image, onClose }) {
           alt={name}
           onClick={navigateHandler}
         />
-        <button className={style.closeButton} onClick={() => onClose(id)}>
-          X
-        </button>
       </div>
-    |
-
+      |
       <div>
         <h2>{species}</h2>
         <h2>{gender}</h2>
@@ -30,3 +86,18 @@ export default function Card({ id, name, species, gender, image, onClose }) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFavorite: (character) => {dispatch(addFavorite(character)) },
+    removeFavorite: (id) => {dispatch(removeFavorite(id)) },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorite: state.myFavorite,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

@@ -2,13 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../../public/portal1.jpg");
   background-position: center;
   height: auto;
   width: auto;
-  border: 1px solid grey;
+  border: 3px solid #39ff14 ;
   border-radius: 50px;
-  box-shadow: 16px 14px 20px #39ff14;
+  box-shadow: 20px 20px 20px black;
   overflow: hidden;
   padding: 20px;
   cursor: pointer;
@@ -63,14 +62,29 @@
 }
 
 .closeButton {
-  opacity: 0.7;
-  position: absolute;
+  /* opacity: 0.7; */
+  position: fixed;
   top: 5px;
-  right: 5px;
+  right: 30px;
+  border-radius: 7px;
 }
 
 .closeButton:hover {
   background-color: rgb(211, 34, 34);
+  color: white;
+  
+}
+
+.favoriteButton {
+  /* opacity: 0.7; */
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  border-radius: 7px;
+}
+
+.favoriteButton:hover {
+  background-color: white;
   color: white;
   
 }

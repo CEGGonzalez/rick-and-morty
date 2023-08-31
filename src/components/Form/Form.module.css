@@ -30,7 +30,7 @@
   width: 420px;
   background-image: linear-gradient(red 20deg, transparent 120deg);
   animation: rotar 2s linear infinite;
-  z-index: -1;
+  /* z-index: -1; */
   transform-origin: bottom;
 }
 
