@@ -33,13 +33,13 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER:
-      const allCharactersFavCopy = [...state.allCharactersFav];
+      // const allCharactersFavCopy = [...state.allCharactersFav];
       return {
         ...state,
         myFavorite:
           action.payload === "A"
-            ? allCharactersFavCopy.sort((a, b) => a.id - b.id)
-            : allCharactersFavCopy.sort((a, b) => b.id - a.id),
+            ? [...state.myFavorite.sort((a, b) => a.id - b.id)]
+            : [...state.myFavorite.sort((a, b) => b.id - a.id)],
       };
 
     default:
